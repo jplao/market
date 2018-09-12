@@ -1,6 +1,7 @@
+require 'pry'
 class Vendor
-  attr_reader :name,
-              :inventory
+  attr_reader :name
+  attr_accessor :inventory
 
   def initialize(name)
     @name = name
@@ -9,13 +10,16 @@ class Vendor
   end
 
   def check_stock(item)
-    if @inventory.include?(item)
-      @inventory[item]
-    else
+    if @inventory[item].nil?
       0
-    end 
+    else
+      @inventory[item]
+    end
   end
 
-  def stock
+  def stock(item, quantity)
+    if @inventory.include?(item)
+      @inventory[item] += quantity
+    end
   end
 end
