@@ -37,4 +37,19 @@ class Market
     end
     market_inventory.sort
   end
+
+  def total_inventory
+    total_invent = {}
+    @vendors.each do |vendor|
+      vendor_keys = vendor.inventory.keys
+      vendor_keys.each do |key|
+        if total_invent[key] == nil
+          total_invent[key] = vendor.inventory[key]
+        else
+          total_invent[key] += vendor.inventory[key]
+        end
+      end
+    end
+    total_invent
+  end
 end

@@ -37,7 +37,6 @@ class VendorTest < MiniTest::Test
   end
 
   def test_it_can_add_to_the_number_of_items_in_stock
-    skip
     vendor = Vendor.new("Rocky Mountain Fresh")
 
     vendor.stock("Peaches", 30)
