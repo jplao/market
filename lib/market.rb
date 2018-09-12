@@ -52,4 +52,14 @@ class Market
     end
     total_invent
   end
+
+  def sell(item, amount)
+    if total_inventory[item] == nil
+      false
+    elsif total_inventory[item] > amount
+      true
+    else
+      false
+    end
+  end
 end
