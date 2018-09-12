@@ -37,6 +37,7 @@ class VendorTest < MiniTest::Test
   end
 
   def test_it_can_add_to_the_number_of_items_in_stock
+    skip
     vendor = Vendor.new("Rocky Mountain Fresh")
 
     vendor.stock("Peaches", 30)
@@ -47,9 +48,10 @@ class VendorTest < MiniTest::Test
 
   def test_inventory_holds_all_stock
     vendor = Vendor.new("Rocky Mountain Fresh")
+    vendor.stock("Peaches", 30)
     vendor.stock("Tomatoes", 12)
 
-    expected = {"Peaches"=>55, "Tomatoes"=>12}
+    expected = {"Peaches"=>30, "Tomatoes"=>12}
     assert_equal expected, vendor.inventory
   end
 
