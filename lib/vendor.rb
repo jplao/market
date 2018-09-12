@@ -9,7 +9,7 @@ class Vendor
   end
 
   def check_stock(item)
-    if @inventory[item].nil?
+    if @inventory[item] == nil
       @inventory[item] = 0
     else
       @inventory[item]
